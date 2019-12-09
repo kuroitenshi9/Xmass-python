@@ -18,7 +18,7 @@ Jeżeli rev=True funkcja ma zadziałać odwrotnie, zwrócić element, o najmniej
 
 lista = [1, 2, 3, 4, 4, 4, 5, 5, 9, 7, 7, 7]
 def mode(list, rev = False):
-    frequencyDic = dict()
+    frequency_dic = dict{}
     for number in list:
         if number in frequencyDic: 
              frequencyDic[number] += 1
