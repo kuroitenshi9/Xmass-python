@@ -11,7 +11,7 @@ def is_anagram(txt1, txt2):
     else:
         print(f"{txt1} and {txt2} are not anagrams")
 
-one =  "I am Lord Voldemort"  
+one =  "I am Lord Voldemort"s
 two = "Tom Marvolo Riddle"
 
 is_anagram(one, two)
