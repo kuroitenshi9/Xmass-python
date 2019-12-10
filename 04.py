@@ -44,6 +44,18 @@ print(get_logs(10, 20, słownik_z_logami))
 => 'INFO', 'ERROR'
 '''
 
+def get_logs(start_interv, end_interv, dict):
+    looking_logs = []
+    for key, value in dict.items():
+        if int(key) >= start_interv and int(key) <= end_interv:
+            looking_logs.append(value)
+        else:
+            pass
+    if len(looking_logs) > 0:
+        return print(f"The log in the timeline {start_interv} - {end_interv}: ", looking_logs)
+    else:
+        return print(f"Sorry, no logs found in the timeline {start_interv} - {end_interv}")
+
 with open('logs.csv', 'r') as fopen:
     lines = fopen.readlines()
 
@@ -59,18 +71,6 @@ for l in lines:
         some_logs[key] = value
 
 print(some_logs)
-
-def get_logs(start_interv, end_interv, dict):
-    looking_logs = []
-    for key, value in dict.items():
-        if int(key) >= start_interv and int(key) <= end_interv:
-            looking_logs.append(value)
-        else:
-            pass
-    if len(looking_logs) > 0:
-        return print(f"The log in the timeline {start_interv} - {end_interv}: ", looking_logs)
-    else:
-        return print(f"Sorry, no logs found in the timeline {start_interv} - {end_interv}")
 
 get_logs(1, 2, some_logs)
 get_logs(10, 20, some_logs)
