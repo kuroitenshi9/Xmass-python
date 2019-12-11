@@ -49,19 +49,22 @@ Jedynie jest potrzebne pobranie czasu od użytkownika w odpowiednim formacie i k
 
 from datetime import datetime
 
+def make_timestamp(date):
+    make_date = datetime.strptime(date, "%d-%m-%Y")
+    date_timestamp = datetime.timestamp(make_date)
+    return date_timestamp
+
 def get_logs(start_interv, end_interv, dict):
     looking_logs = []
-    start_interv = datetime.strptime(start_interv, "%d-%m-%Y")
-    end_interv = datetime.strptime(end_interv,"%d-%m-%Y")
-    start_interv = datetime.timestamp(start_interv)
-    end_interv = datetime.timestamp(end_interv)
+    start_interv = make_timestamp(start_interv)
+    end_interv = make_timestamp(end_interv)
     for key, value in dict.items():
         if int(key) > start_interv and int(key) < end_interv:
             looking_logs.append(value)
         else:
             pass
     if len(looking_logs) > 0:
-        return print(f"The log in the timeline {start_interv} - {end_interv}: ", looking_logs)
+        return print(f"The log in the timeline {start_interv} - {end_interv}: ", set(looking_logs))
     else:
         return print(f"Sorry, no logs found in the timeline {start_interv} - {end_interv}")
 
@@ -79,14 +82,11 @@ for l in lines:
         value = l[1]
         some_logs[key] = value
 
-# print(some_logs)
 
-get_logs('01-01-2019', '03-12-2019', some_logs)
+def main():
+    start_interv = str(input("Give start date in format dd-mm-yyyy: "))
+    end_interv = str(input("Give end date in format dd-mm-yyyy: "))
+    get_logs(start_interv, end_interv, some_logs)
 
-# def main():
-#     start_interv = str(input("Give start date in format dd-mm-yyyy: "))
-#     end_interv = str(input("Give end date in format dd-mm-yyyy: "))
-#     print(get_logs(start_interv, end_interv, some_logs))
-
-# if __name__ == '__main__':
-#   main()
+if __name__ == '__main__':
+  main()
