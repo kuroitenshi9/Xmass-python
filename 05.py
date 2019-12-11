@@ -29,11 +29,15 @@ sentences = [
 ]
 
 def most_repeated(list):
-    most_repeated = dict{}
-    for word in list:
-        if word in frequencyDic: 
-             frequencyDic[number] += 1
+    my_list= {}
+    for number in list:
+        if number in my_list: 
+             my_list[number] += 1
         else:
-            frequencyDic[number] = 1
-    
+            my_list[number] = 1
+    # if rev == True:
+    #     return  min(frequencyDic, key=frequencyDic.get)
+    # else:
+    #     return  max(frequencyDic, key=frequencyDic.get)
 
+print(most_repeated(sentences))
