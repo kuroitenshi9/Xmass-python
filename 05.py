@@ -12,7 +12,7 @@
 sentences = [
     'Taki mamy klimat',
     'Wszędzie dobrze ale w domu najlepiej',
-    'Wyskoczył jak Filip z konopii',
+    'Wyskoczył jak Filip z konopi',
     'Gdzie kucharek sześć tam nie ma co jeść',
     'Nie ma to jak w domu',
     'Konduktorze łaskawy zabierz nas do Warszawy',
@@ -30,14 +30,14 @@ sentences = [
 
 def most_repeated(list):
     my_list= {}
-    for number in list:
-        if number in my_list: 
-             my_list[number] += 1
-        else:
-            my_list[number] = 1
-    # if rev == True:
-    #     return  min(frequencyDic, key=frequencyDic.get)
-    # else:
-    #     return  max(frequencyDic, key=frequencyDic.get)
-
+    for strings in list:
+        ssplit = strings.split()
+        for word in ssplit:
+            if word in my_list: 
+                my_list[word] += 1
+            else:
+                 my_list[word] = 1
+    top3 = {k: my_list[k] for k in sorted(my_list, key=my_list.get, reverse=True)[:3]}
+    return f"Three most repeated words are {top3}" 
+  
 print(most_repeated(sentences))
