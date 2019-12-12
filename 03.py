@@ -14,21 +14,20 @@ Day 03. Rozszerzenie
 Z modyfikuj funkcje example_function(examole_list) opcjonalny parametr rev (reversed). 
 Jeżeli rev=True funkcja ma zadziałać odwrotnie, zwrócić element, o najmniejszej liczbie wystąpień
 '''
-# import operator
 
 lista = [1, 2, 3, 4, 4, 4, 5, 5, 9, 7, 7, 7]
 def mode(list, rev = False):
-    frequency_dic = dict{}
+    frequency_dic = {}
     for number in list:
-        if number in frequencyDic: 
-             frequencyDic[number] += 1
+        if number in frequency_dic : 
+             frequency_dic[number] += 1
         else:
-            frequencyDic[number] = 1
+            frequency_dic[number] = 1
     if rev == True:
-        return  min(frequencyDic, key=frequencyDic.get)
+        return  min(frequency_dic, key=frequency_dic.get)
     else:
-        return  max(frequencyDic, key=frequencyDic.get)
+        return  max(frequency_dic, key=frequency_dic.get)
 
-
-print(mode(lista))
-print(mode(lista, True))
+if __name__ == '__main__':
+    print(mode(lista))
+    print(mode(lista, True))

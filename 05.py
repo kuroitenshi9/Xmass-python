@@ -40,4 +40,5 @@ def most_repeated(list):
     top3 = {k: my_list[k] for k in sorted(my_list, key=my_list.get, reverse=True)[:3]}
     return f"Three most repeated words are {top3}" 
   
-print(most_repeated(sentences))
+if __name__ == '__main__':
+  print(most_repeated(sentences))
