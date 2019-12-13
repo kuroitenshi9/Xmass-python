@@ -10,8 +10,12 @@ def loteria():
     your_numbers = user_input()
     numbers = []
     win = 0
-    stopien_wygranej = 0
-    kwota = 0
+    win_info = {
+        6 : ["szóstego stopnia", "1000000"],
+        5 : ["piątego stopnia", "3500"],
+        4 : ["czwartego stopnia", "100"],
+        3 : ["trzeciego stopnia", "10"]
+    }
     
     #komputer losuje zmienne
     while len(numbers) < 6:
@@ -20,28 +24,14 @@ def loteria():
             numbers.append(a)
     
     #sprawdzam czy jest wygrana
-    for number in your_numbers:
-        for number1 in numbers:
-            if number == number1:
-                win =+ 1       
-    if win == 3:
-        kwota = 10
-        stopien_wygranej = 4
-    elif win == 4:
-        kwota = 100
-        stopien_wygranej = 3
-    elif win == 5:
-        kwota = 3500
-        stopien_wygranej = 2
-    elif win == 6:
-        kwota = 1000000
-        stopien_wygranej = 1
-    print(numbers, your_numbers, win)
+    win = (set(your_numbers) & set(numbers)) 
+    win = len(win)
+    print("Your numbers are: ", your_numbers, "and computer numbers are: ", numbers)
 
     if win < 3:
         return "Sorry no win"
     else:
-        return f"Wygrałeś nagrodę {stopien_wygranej} stopnia. Kwota wygranej wynosi: {kwota}"
+        return f"Wygrałeś nagrodę {win_info[win][0]} stopnia. Kwota wygranej wynosi: {win_info[win][1]}"
 
 
 if __name__ == '__main__':
