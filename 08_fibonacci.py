@@ -3,6 +3,9 @@ W ramach ćwiczenia można sobie przypomnieć
 ciąg fibonacciego iteracyjnie i spróbować 
 napisać generator (to naprawdę nic trudnego)
 '''
+
+
+#normal function
 def fibonacci(n):
     if n == 0:
         return 0
@@ -11,13 +14,14 @@ def fibonacci(n):
     else:
         return fibonacci(n-1) + fibonacci(n-2)
 
-
+#one solution
 def fib(n):
     a, b = 0, 1
     for _ in range(n):
         yield a
         a, b = b, a + b
 
+#second solution
 def gen_fib():
     a,b = 0,1
     yield a
