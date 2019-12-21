@@ -29,11 +29,10 @@ Nowy generator ma dla N=2 zwrócić
 
 def fibonacci(some_list):
     for n in some_list:
-        if n in [0,1]:
+        for n in [0,1]:
             yield(n)
     else:
-        yield(n)
-        n = fibonacci(n-1) + fibonacci(n-2)
+        yield(fibonacci(n-1) + fibonacci(n-2))
 
 if __name__ == "__main__":
     # print(fibonacci(0)
@@ -41,7 +40,6 @@ if __name__ == "__main__":
     # print(fibonacci(2))
     numbers = [0,1,2,3,4,5,6,7]
 
-    print(next(fibonacci(numbers)))
     print(next(fibonacci(numbers)))
     print(next(fibonacci(numbers)))
 
