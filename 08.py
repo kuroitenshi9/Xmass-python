@@ -19,20 +19,29 @@ def gen_numbers():
         num += 1
         yield num
 
-def gen_numbers_list(n):
+# def gen_numbers_list(n):
+#     nums = gen_numbers()
+#     list_nums = []
+#     while True:
+#         for _ in range(n):
+#             list_nums.append(next(nums))
+#         yield list_nums
+#         list_nums.clear()
+
+def gen_list(N):
     nums = gen_numbers()
-    list_nums = []
+    nums_list = []
     while True:
-        for _ in range(n):
-            list_nums.append(next(nums))
-        yield list_nums
-        list_nums.clear()
+       for _ in range(N):
+            nums_list.append(next(nums))
+    yield nums_list
+    nums_list.clear()
 
 if __name__ == "__main__":
-    test1 = gen_numbers_list(2)
+    test1 = gen_list(2)
     print(next(test1))
     print(next(test1))
-    test2 = gen_numbers_list(4)
+    test2 = gen_list(4)
     print(next(test2))
     print(next(test2))
 
